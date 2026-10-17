@@ -1,0 +1,338 @@
+{
+  "devices": {
+    "place": {
+      "external_id": "ext:test-integration:place:fr_46.31_4.83",
+      "should_poll": false,
+      "params": ["REGION", "CITY", "LATITUDE", "LONGITUDE"],
+      "features": [
+        {
+          "external_id": "ext:test-integration:place:fr_46.31_4.83:level",
+          "category": "airquality-sensor",
+          "type": "aqi",
+          "min": 1,
+          "max": 4,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:place:fr_46.31_4.83:level_tomorrow",
+          "category": "airquality-sensor",
+          "type": "aqi",
+          "min": 1,
+          "max": 4,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:place:fr_46.31_4.83:trees",
+          "category": "airquality-sensor",
+          "type": "aqi",
+          "min": 0,
+          "max": 10000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:place:fr_46.31_4.83:grass",
+          "category": "airquality-sensor",
+          "type": "aqi",
+          "min": 0,
+          "max": 10000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:place:fr_46.31_4.83:weeds",
+          "category": "airquality-sensor",
+          "type": "aqi",
+          "min": 0,
+          "max": 10000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:place:fr_46.31_4.83:trees_level",
+          "category": "airquality-sensor",
+          "type": "aqi",
+          "min": 1,
+          "max": 4,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:place:fr_46.31_4.83:grass_level",
+          "category": "airquality-sensor",
+          "type": "aqi",
+          "min": 1,
+          "max": 4,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:place:fr_46.31_4.83:weeds_level",
+          "category": "airquality-sensor",
+          "type": "aqi",
+          "min": 1,
+          "max": 4,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:place:fr_46.31_4.83:main_pollen",
+          "category": "text",
+          "type": "text",
+          "min": 0,
+          "max": 0,
+          "read_only": true,
+          "has_feedback": false
+        }
+      ]
+    },
+    "westernPlace": {
+      "external_id": "ext:test-integration:place:us_41.88_-87.63",
+      "should_poll": false,
+      "params": ["REGION", "CITY", "LATITUDE", "LONGITUDE"],
+      "features": [
+        {
+          "external_id": "ext:test-integration:place:us_41.88_-87.63:level",
+          "category": "airquality-sensor",
+          "type": "aqi",
+          "min": 1,
+          "max": 4,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:place:us_41.88_-87.63:level_tomorrow",
+          "category": "airquality-sensor",
+          "type": "aqi",
+          "min": 1,
+          "max": 4,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:place:us_41.88_-87.63:trees",
+          "category": "airquality-sensor",
+          "type": "aqi",
+          "min": 0,
+          "max": 10000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:place:us_41.88_-87.63:grass",
+          "category": "airquality-sensor",
+          "type": "aqi",
+          "min": 0,
+          "max": 10000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:place:us_41.88_-87.63:weeds",
+          "category": "airquality-sensor",
+          "type": "aqi",
+          "min": 0,
+          "max": 10000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:place:us_41.88_-87.63:trees_level",
+          "category": "airquality-sensor",
+          "type": "aqi",
+          "min": 1,
+          "max": 4,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:place:us_41.88_-87.63:grass_level",
+          "category": "airquality-sensor",
+          "type": "aqi",
+          "min": 1,
+          "max": 4,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:place:us_41.88_-87.63:weeds_level",
+          "category": "airquality-sensor",
+          "type": "aqi",
+          "min": 1,
+          "max": 4,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:place:us_41.88_-87.63:main_pollen",
+          "category": "text",
+          "type": "text",
+          "min": 0,
+          "max": 0,
+          "read_only": true,
+          "has_feedback": false
+        }
+      ]
+    }
+  },
+  "manifest": {
+    "actions": ["refresh", "diagnostic"],
+    "config_schema": [
+      {
+        "key": "region",
+        "type": "select"
+      },
+      {
+        "key": "city_1",
+        "type": "string"
+      },
+      {
+        "key": "city_2",
+        "type": "string"
+      },
+      {
+        "key": "city_3",
+        "type": "string"
+      },
+      {
+        "key": "language",
+        "type": "select"
+      }
+    ],
+    "scene_triggers": [
+      {
+        "key": "pollen_alert",
+        "fields": [
+          {
+            "key": "place",
+            "options": []
+          },
+          {
+            "key": "pollen_type",
+            "options": ["trees", "grass", "weeds"]
+          },
+          {
+            "key": "day",
+            "options": ["today", "tomorrow"]
+          },
+          {
+            "key": "level",
+            "options": ["2", "3", "4"]
+          }
+        ],
+        "variables": [
+          {
+            "key": "place_name",
+            "type": "string"
+          },
+          {
+            "key": "day",
+            "type": "string"
+          },
+          {
+            "key": "date",
+            "type": "string"
+          },
+          {
+            "key": "pollen_type",
+            "type": "string"
+          },
+          {
+            "key": "type_label",
+            "type": "string"
+          },
+          {
+            "key": "level",
+            "type": "number"
+          },
+          {
+            "key": "label",
+            "type": "string"
+          },
+          {
+            "key": "count",
+            "type": "number"
+          },
+          {
+            "key": "species",
+            "type": "string"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      }
+    ],
+    "scene_actions": [
+      {
+        "key": "get_pollen",
+        "fields": ["place", "day"],
+        "outputs": [
+          {
+            "key": "place_name",
+            "type": "string"
+          },
+          {
+            "key": "date",
+            "type": "string"
+          },
+          {
+            "key": "level",
+            "type": "number"
+          },
+          {
+            "key": "label",
+            "type": "string"
+          },
+          {
+            "key": "trees",
+            "type": "number"
+          },
+          {
+            "key": "trees_level",
+            "type": "number"
+          },
+          {
+            "key": "grass",
+            "type": "number"
+          },
+          {
+            "key": "grass_level",
+            "type": "number"
+          },
+          {
+            "key": "weeds",
+            "type": "number"
+          },
+          {
+            "key": "weeds_level",
+            "type": "number"
+          },
+          {
+            "key": "main_pollen",
+            "type": "string"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      }
+    ],
+    "widgets": [
+      {
+        "key": "forecast",
+        "settings": ["place"],
+        "options": {}
+      },
+      {
+        "key": "species",
+        "settings": ["place"],
+        "options": {}
+      }
+    ]
+  }
+}

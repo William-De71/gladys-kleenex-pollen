@@ -1,0 +1,905 @@
+{
+  "manifest_version": 1,
+  "type": "device",
+  "name": "Kleenex Pollen Radar",
+  "description": {
+    "en": "Kleenex pollen radar: trees, grass and weeds pollen per city, five-day forecast.",
+    "fr": "Radar des pollens Kleenex : arbres, graminées, herbacées par ville, prévision à 5 jours.",
+    "de": "Kleenex-Pollenradar: Baum-, Gräser- und Kräuterpollen je Stadt, 5-Tage-Prognose.",
+    "es": "Radar de polen Kleenex: árboles, gramíneas y herbáceas por ciudad, previsión a 5 días."
+  },
+  "version": "0.1.0",
+  "docker_image": "ghcr.io/william-de71/gladys-kleenex-pollen:0.1.0",
+  "gladys_version": ">=5.1.0",
+  "categories": ["environment"],
+  "cover_image": "https://raw.githubusercontent.com/William-De71/gladys-kleenex-pollen/main/cover.jpg",
+  "transports": ["cloud"],
+  "config_schema": [
+    {
+      "key": "intro",
+      "type": "section",
+      "label": {
+        "en": "Kleenex pollen radar",
+        "fr": "Radar des pollens Kleenex",
+        "de": "Kleenex-Pollenradar",
+        "es": "Radar de polen Kleenex"
+      },
+      "description": {
+        "en": "The data come from the pollen radar of the Kleenex websites (Scottex in Italy): the pollen counted in the air for trees, grass and weeds, with the main species, today and for the next four days. No account and no key are needed. This connector is unofficial and not affiliated with Kleenex or Kimberly-Clark: it reads the same data as the website, every three hours, and may stop working if the site changes.",
+        "fr": "Les données viennent du radar des pollens des sites Kleenex (Scottex en Italie) : les pollens comptés dans l’air pour les arbres, les graminées et les herbacées, avec les principales espèces, aujourd’hui et pour les quatre jours suivants. Aucun compte ni clé n’est nécessaire. Ce connecteur n’est pas officiel et n’est pas affilié à Kleenex ni à Kimberly-Clark : il lit les mêmes données que le site, toutes les trois heures, et peut cesser de fonctionner si le site change.",
+        "de": "Die Daten stammen vom Pollenradar der Kleenex-Websites (Scottex in Italien): die in der Luft gezählten Baum-, Gräser- und Kräuterpollen mit den Hauptarten, heute und für die nächsten vier Tage. Weder Konto noch Schlüssel sind nötig. Dieser Connector ist inoffiziell und nicht mit Kleenex oder Kimberly-Clark verbunden: Er liest alle drei Stunden dieselben Daten wie die Website und kann ausfallen, wenn sich die Website ändert.",
+        "es": "Los datos proceden del radar de polen de los sitios de Kleenex (Scottex en Italia): el polen contado en el aire de árboles, gramíneas y herbáceas, con las principales especies, hoy y para los cuatro días siguientes. No hace falta cuenta ni clave. Este conector no es oficial ni está afiliado a Kleenex ni a Kimberly-Clark: lee los mismos datos que el sitio, cada tres horas, y puede dejar de funcionar si el sitio cambia."
+      },
+      "links": [
+        {
+          "url": "https://github.com/William-De71/gladys-kleenex-pollen",
+          "label": {
+            "en": "Documentation and support",
+            "fr": "Documentation et support",
+            "de": "Dokumentation und Support",
+            "es": "Documentación y soporte"
+          }
+        }
+      ]
+    },
+    {
+      "key": "region",
+      "type": "select",
+      "required": true,
+      "default": "fr",
+      "label": {
+        "en": "Country",
+        "fr": "Pays",
+        "de": "Land",
+        "es": "País"
+      },
+      "description": {
+        "en": "The pollen radar of this country is asked for every city below.",
+        "fr": "Le radar des pollens de ce pays est interrogé pour toutes les villes ci-dessous.",
+        "de": "Das Pollenradar dieses Landes wird für alle Städte unten abgefragt.",
+        "es": "Se consulta el radar de polen de este país para todas las ciudades de abajo."
+      },
+      "options": [
+        {
+          "value": "fr",
+          "label": {
+            "en": "France",
+            "fr": "France",
+            "de": "Frankreich",
+            "es": "Francia"
+          }
+        },
+        {
+          "value": "uk",
+          "label": {
+            "en": "United Kingdom and Ireland",
+            "fr": "Royaume-Uni et Irlande",
+            "de": "Vereinigtes Königreich und Irland",
+            "es": "Reino Unido e Irlanda"
+          }
+        },
+        {
+          "value": "nl",
+          "label": {
+            "en": "Netherlands",
+            "fr": "Pays-Bas",
+            "de": "Niederlande",
+            "es": "Países Bajos"
+          }
+        },
+        {
+          "value": "it",
+          "label": {
+            "en": "Italy",
+            "fr": "Italie",
+            "de": "Italien",
+            "es": "Italia"
+          }
+        },
+        {
+          "value": "us",
+          "label": {
+            "en": "United States",
+            "fr": "États-Unis",
+            "de": "USA",
+            "es": "Estados Unidos"
+          }
+        }
+      ]
+    },
+    {
+      "key": "places",
+      "type": "section",
+      "label": {
+        "en": "Cities",
+        "fr": "Villes",
+        "de": "Städte",
+        "es": "Ciudades"
+      },
+      "description": {
+        "en": "Type up to three cities, by name or postal code: “Mâcon”, “71000”, “Leeds”, “Utrecht”. For Ireland, add the country: “Dublin, Ireland”. Each city becomes a device in the Discover tab; the status above shows the name the radar found.",
+        "fr": "Saisissez jusqu’à trois villes, par nom ou code postal : « Mâcon », « 71000 », « Leeds », « Utrecht ». En Irlande, ajoutez le pays : « Dublin, Ireland ». Chaque ville devient un appareil dans l’onglet Découverte ; l’état ci-dessus affiche le nom trouvé par le radar.",
+        "de": "Geben Sie bis zu drei Städte ein, per Name oder Postleitzahl: „Mâcon“, „71000“, „Leeds“, „Utrecht“. Für Irland das Land angeben: „Dublin, Ireland“. Jede Stadt wird zu einem Gerät im Tab Entdecken; der Status oben zeigt den vom Radar gefundenen Namen.",
+        "es": "Escriba hasta tres ciudades, por nombre o código postal: «Mâcon», «71000», «Leeds», «Utrecht». Para Irlanda, añada el país: «Dublin, Ireland». Cada ciudad se convierte en un dispositivo en la pestaña Descubrir; el estado de arriba muestra el nombre que encontró el radar."
+      }
+    },
+    {
+      "key": "city_1",
+      "type": "string",
+      "required": true,
+      "label": {
+        "en": "City",
+        "fr": "Ville",
+        "de": "Stadt",
+        "es": "Ciudad"
+      },
+      "description": {
+        "en": "Name or postal code, as the pollen radar site understands it.",
+        "fr": "Nom ou code postal, tel que le site du radar des pollens le comprend.",
+        "de": "Name oder Postleitzahl, so wie die Website des Pollenradars sie versteht.",
+        "es": "Nombre o código postal, tal como lo entiende el sitio del radar de polen."
+      },
+      "placeholder": {
+        "en": "Mâcon",
+        "fr": "Mâcon",
+        "de": "Mâcon",
+        "es": "Mâcon"
+      }
+    },
+    {
+      "key": "city_2",
+      "type": "string",
+      "required": false,
+      "label": {
+        "en": "City 2",
+        "fr": "Ville 2",
+        "de": "Stadt 2",
+        "es": "Ciudad 2"
+      },
+      "description": {
+        "en": "Another city to follow (a second home, the workplace, the school). Optional.",
+        "fr": "Une autre ville à suivre (résidence secondaire, travail, école). Facultatif.",
+        "de": "Eine weitere Stadt (Zweitwohnung, Arbeitsplatz, Schule). Optional.",
+        "es": "Otra ciudad que seguir (segunda residencia, trabajo, colegio). Opcional."
+      },
+      "placeholder": {
+        "en": "71000",
+        "fr": "71000",
+        "de": "71000",
+        "es": "71000"
+      }
+    },
+    {
+      "key": "city_3",
+      "type": "string",
+      "required": false,
+      "label": {
+        "en": "City 3",
+        "fr": "Ville 3",
+        "de": "Stadt 3",
+        "es": "Ciudad 3"
+      },
+      "description": {
+        "en": "Another city to follow (a second home, the workplace, the school). Optional.",
+        "fr": "Une autre ville à suivre (résidence secondaire, travail, école). Facultatif.",
+        "de": "Eine weitere Stadt (Zweitwohnung, Arbeitsplatz, Schule). Optional.",
+        "es": "Otra ciudad que seguir (segunda residencia, trabajo, colegio). Opcional."
+      },
+      "placeholder": {
+        "en": "71000",
+        "fr": "71000",
+        "de": "71000",
+        "es": "71000"
+      }
+    },
+    {
+      "key": "options",
+      "type": "section",
+      "label": {
+        "en": "Options",
+        "fr": "Options",
+        "de": "Optionen",
+        "es": "Opciones"
+      }
+    },
+    {
+      "key": "language",
+      "type": "select",
+      "required": false,
+      "default": "auto",
+      "label": {
+        "en": "Language of the texts",
+        "fr": "Langue des textes",
+        "de": "Sprache der Texte",
+        "es": "Idioma de los textos"
+      },
+      "description": {
+        "en": "Language of the device names and of the scene texts. Automatic: the language of your dashboard.",
+        "fr": "Langue des noms d’appareils et des textes des scènes. Automatique : la langue de votre tableau de bord.",
+        "de": "Sprache der Gerätenamen und der Szenentexte. Automatisch: die Sprache Ihres Dashboards.",
+        "es": "Idioma de los nombres de dispositivos y de los textos de escenas. Automático: el idioma de su panel."
+      },
+      "options": [
+        {
+          "value": "auto",
+          "label": {
+            "en": "Automatic",
+            "fr": "Automatique",
+            "de": "Automatisch",
+            "es": "Automático"
+          }
+        },
+        {
+          "value": "en",
+          "label": {
+            "en": "English",
+            "fr": "English",
+            "de": "English",
+            "es": "English"
+          }
+        },
+        {
+          "value": "fr",
+          "label": {
+            "en": "Français",
+            "fr": "Français",
+            "de": "Français",
+            "es": "Français"
+          }
+        },
+        {
+          "value": "de",
+          "label": {
+            "en": "Deutsch",
+            "fr": "Deutsch",
+            "de": "Deutsch",
+            "es": "Deutsch"
+          }
+        },
+        {
+          "value": "es",
+          "label": {
+            "en": "Español",
+            "fr": "Español",
+            "de": "Español",
+            "es": "Español"
+          }
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "key": "refresh",
+      "timeout_seconds": 60,
+      "label": {
+        "en": "Read now",
+        "fr": "Lire maintenant",
+        "de": "Jetzt lesen",
+        "es": "Leer ahora"
+      },
+      "description": {
+        "en": "Reads the pollen radar now for every city, instead of waiting for the next reading (at most every 10 minutes).",
+        "fr": "Lit tout de suite le radar des pollens pour chaque ville, sans attendre la prochaine lecture (au plus toutes les 10 minutes).",
+        "de": "Liest das Pollenradar sofort für jede Stadt, ohne auf die nächste Abfrage zu warten (höchstens alle 10 Minuten).",
+        "es": "Lee ahora el radar de polen para cada ciudad, sin esperar a la próxima lectura (como mucho cada 10 minutos)."
+      }
+    },
+    {
+      "key": "diagnostic",
+      "timeout_seconds": 10,
+      "label": {
+        "en": "Diagnostic",
+        "fr": "Diagnostic",
+        "de": "Diagnose",
+        "es": "Diagnóstico"
+      },
+      "description": {
+        "en": "Writes to the Logs tab the cities found, the schedule, the last error and the data read, for a report on GitHub or the forum.",
+        "fr": "Écrit dans l’onglet Journaux les villes trouvées, le planning, la dernière erreur et les données lues, pour un retour sur GitHub ou le forum.",
+        "de": "Schreibt in den Tab Protokolle die gefundenen Städte, den Zeitplan, den letzten Fehler und die gelesenen Daten, für eine Meldung auf GitHub oder im Forum.",
+        "es": "Escribe en la pestaña Registros las ciudades encontradas, la planificación, el último error y los datos leídos, para un informe en GitHub o el foro."
+      }
+    }
+  ],
+  "widgets": [
+    {
+      "key": "forecast",
+      "icon": "feather",
+      "label": {
+        "en": "Pollen radar",
+        "fr": "Radar des pollens",
+        "de": "Pollenradar",
+        "es": "Radar de polen"
+      },
+      "description": {
+        "en": "Trees, grass and weeds pollen today and on the next four days.",
+        "fr": "Pollens d’arbres, de graminées et d’herbacées aujourd’hui et les quatre jours suivants.",
+        "de": "Baum-, Gräser- und Kräuterpollen heute und an den nächsten vier Tagen.",
+        "es": "Polen de árboles, gramíneas y herbáceas hoy y los cuatro días siguientes."
+      },
+      "settings": [
+        {
+          "key": "place",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "City",
+            "fr": "Ville",
+            "de": "Stadt",
+            "es": "Ciudad"
+          },
+          "description": {
+            "en": "Empty: the first city.",
+            "fr": "Vide : la première ville.",
+            "de": "Leer: die erste Stadt.",
+            "es": "Vacío: la primera ciudad."
+          },
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "species",
+      "icon": "list",
+      "label": {
+        "en": "Pollen species",
+        "fr": "Espèces de pollens",
+        "de": "Pollenarten",
+        "es": "Especies de polen"
+      },
+      "description": {
+        "en": "The species counted today, highest first.",
+        "fr": "Les espèces comptées aujourd’hui, les plus présentes d’abord.",
+        "de": "Die heute gezählten Arten, die häufigsten zuerst.",
+        "es": "Las especies contadas hoy, las más presentes primero."
+      },
+      "settings": [
+        {
+          "key": "place",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "City",
+            "fr": "Ville",
+            "de": "Stadt",
+            "es": "Ciudad"
+          },
+          "description": {
+            "en": "Empty: the first city.",
+            "fr": "Vide : la première ville.",
+            "de": "Leer: die erste Stadt.",
+            "es": "Vacío: la primera ciudad."
+          },
+          "required": false
+        }
+      ]
+    }
+  ],
+  "scene_triggers": [
+    {
+      "key": "pollen_alert",
+      "label": {
+        "en": "Kleenex: pollen alert",
+        "fr": "Kleenex : alerte pollens",
+        "de": "Kleenex: Pollenwarnung",
+        "es": "Kleenex: alerta de polen"
+      },
+      "description": {
+        "en": "The trees, grass or weeds pollen of today or tomorrow reaches “Moderate” or more, or rises again.",
+        "fr": "Les pollens d’arbres, de graminées ou d’herbacées d’aujourd’hui ou de demain atteignent « Modéré » ou plus, ou augmentent encore.",
+        "de": "Die Baum-, Gräser- oder Kräuterpollen von heute oder morgen erreichen „Mäßig“ oder mehr oder steigen weiter.",
+        "es": "El polen de árboles, gramíneas o herbáceas de hoy o mañana llega a «Moderado» o más, o vuelve a subir."
+      },
+      "fields": [
+        {
+          "key": "place",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "City",
+            "fr": "Ville",
+            "de": "Stadt",
+            "es": "Ciudad"
+          },
+          "description": {
+            "en": "Leave empty for any.",
+            "fr": "Laissez vide pour tous.",
+            "de": "Leer lassen für alle.",
+            "es": "Déjelo vacío para todos."
+          },
+          "required": false
+        },
+        {
+          "key": "pollen_type",
+          "type": "multi_select",
+          "label": {
+            "en": "Pollen",
+            "fr": "Pollens",
+            "de": "Pollen",
+            "es": "Polen"
+          },
+          "description": {
+            "en": "Leave empty for any.",
+            "fr": "Laissez vide pour tous.",
+            "de": "Leer lassen für alle.",
+            "es": "Déjelo vacío para todos."
+          },
+          "required": false,
+          "options": [
+            {
+              "value": "trees",
+              "label": {
+                "en": "Trees",
+                "fr": "Arbres",
+                "de": "Bäume",
+                "es": "Árboles"
+              }
+            },
+            {
+              "value": "grass",
+              "label": {
+                "en": "Grass",
+                "fr": "Graminées",
+                "de": "Gräser",
+                "es": "Gramíneas"
+              }
+            },
+            {
+              "value": "weeds",
+              "label": {
+                "en": "Weeds",
+                "fr": "Herbacées",
+                "de": "Kräuter",
+                "es": "Herbáceas"
+              }
+            }
+          ]
+        },
+        {
+          "key": "day",
+          "type": "select",
+          "label": {
+            "en": "Day",
+            "fr": "Jour",
+            "de": "Tag",
+            "es": "Día"
+          },
+          "description": {
+            "en": "Leave empty for any.",
+            "fr": "Laissez vide pour tous.",
+            "de": "Leer lassen für alle.",
+            "es": "Déjelo vacío para todos."
+          },
+          "required": false,
+          "options": [
+            {
+              "value": "today",
+              "label": {
+                "en": "Today",
+                "fr": "Aujourd’hui",
+                "de": "Heute",
+                "es": "Hoy"
+              }
+            },
+            {
+              "value": "tomorrow",
+              "label": {
+                "en": "Tomorrow",
+                "fr": "Demain",
+                "de": "Morgen",
+                "es": "Mañana"
+              }
+            }
+          ]
+        },
+        {
+          "key": "level",
+          "type": "multi_select",
+          "label": {
+            "en": "Levels",
+            "fr": "Niveaux",
+            "de": "Stufen",
+            "es": "Niveles"
+          },
+          "description": {
+            "en": "Leave empty for any.",
+            "fr": "Laissez vide pour tous.",
+            "de": "Leer lassen für alle.",
+            "es": "Déjelo vacío para todos."
+          },
+          "required": false,
+          "options": [
+            {
+              "value": "2",
+              "label": {
+                "en": "Moderate",
+                "fr": "Modéré",
+                "de": "Mäßig",
+                "es": "Moderado"
+              }
+            },
+            {
+              "value": "3",
+              "label": {
+                "en": "High",
+                "fr": "Élevé",
+                "de": "Hoch",
+                "es": "Alto"
+              }
+            },
+            {
+              "value": "4",
+              "label": {
+                "en": "Very high",
+                "fr": "Très élevé",
+                "de": "Sehr hoch",
+                "es": "Muy alto"
+              }
+            }
+          ]
+        }
+      ],
+      "variables": [
+        {
+          "key": "place_name",
+          "type": "string",
+          "label": {
+            "en": "City",
+            "fr": "Ville",
+            "de": "Stadt",
+            "es": "Ciudad"
+          }
+        },
+        {
+          "key": "day",
+          "type": "string",
+          "label": {
+            "en": "Day",
+            "fr": "Jour",
+            "de": "Tag",
+            "es": "Día"
+          },
+          "description": {
+            "en": "today or tomorrow.",
+            "fr": "today ou tomorrow.",
+            "de": "today oder tomorrow.",
+            "es": "today o tomorrow."
+          }
+        },
+        {
+          "key": "date",
+          "type": "string",
+          "label": {
+            "en": "Date",
+            "fr": "Date",
+            "de": "Datum",
+            "es": "Fecha"
+          },
+          "description": {
+            "en": "YYYY-MM-DD.",
+            "fr": "AAAA-MM-JJ.",
+            "de": "JJJJ-MM-TT.",
+            "es": "AAAA-MM-DD."
+          }
+        },
+        {
+          "key": "pollen_type",
+          "type": "string",
+          "label": {
+            "en": "Pollen type",
+            "fr": "Type de pollens",
+            "de": "Pollenart",
+            "es": "Tipo de polen"
+          },
+          "description": {
+            "en": "trees, grass or weeds.",
+            "fr": "trees, grass ou weeds.",
+            "de": "trees, grass oder weeds.",
+            "es": "trees, grass o weeds."
+          }
+        },
+        {
+          "key": "type_label",
+          "type": "string",
+          "label": {
+            "en": "Pollen",
+            "fr": "Pollens",
+            "de": "Pollen",
+            "es": "Polen"
+          }
+        },
+        {
+          "key": "level",
+          "type": "number",
+          "label": {
+            "en": "Level",
+            "fr": "Niveau",
+            "de": "Stufe",
+            "es": "Nivel"
+          },
+          "description": {
+            "en": "1 (low) to 4 (very high).",
+            "fr": "1 (faible) à 4 (très élevé).",
+            "de": "1 (niedrig) bis 4 (sehr hoch).",
+            "es": "1 (bajo) a 4 (muy alto)."
+          }
+        },
+        {
+          "key": "label",
+          "type": "string",
+          "label": {
+            "en": "Level name",
+            "fr": "Nom du niveau",
+            "de": "Name der Stufe",
+            "es": "Nombre del nivel"
+          }
+        },
+        {
+          "key": "count",
+          "type": "number",
+          "label": {
+            "en": "Count",
+            "fr": "Comptage",
+            "de": "Anzahl",
+            "es": "Recuento"
+          },
+          "description": {
+            "en": "Grains per m³; empty when unknown.",
+            "fr": "Grains par m³ ; vide si inconnu.",
+            "de": "Körner pro m³; leer, wenn unbekannt.",
+            "es": "Granos por m³; vacío si se desconoce."
+          }
+        },
+        {
+          "key": "species",
+          "type": "string",
+          "label": {
+            "en": "Main species",
+            "fr": "Espèces principales",
+            "de": "Hauptarten",
+            "es": "Especies principales"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary",
+            "fr": "Résumé",
+            "de": "Zusammenfassung",
+            "es": "Resumen"
+          },
+          "description": {
+            "en": "A sentence ready for a message.",
+            "fr": "Une phrase prête pour un message.",
+            "de": "Ein Satz für eine Nachricht.",
+            "es": "Una frase lista para un mensaje."
+          }
+        }
+      ]
+    }
+  ],
+  "scene_actions": [
+    {
+      "key": "get_pollen",
+      "timeout_seconds": 10,
+      "label": {
+        "en": "Kleenex: read the pollen",
+        "fr": "Kleenex : lire les pollens",
+        "de": "Kleenex: Pollen lesen",
+        "es": "Kleenex: leer el polen"
+      },
+      "description": {
+        "en": "The pollen level and counts of a city, today or tomorrow, for the next actions (a message, a condition).",
+        "fr": "Le niveau et les comptages de pollens d’une ville, aujourd’hui ou demain, pour les actions suivantes (un message, une condition).",
+        "de": "Pollenstufe und Zählungen einer Stadt, heute oder morgen, für die nächsten Aktionen (eine Nachricht, eine Bedingung).",
+        "es": "El nivel y los recuentos de polen de una ciudad, hoy o mañana, para las acciones siguientes (un mensaje, una condición)."
+      },
+      "fields": [
+        {
+          "key": "place",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "City",
+            "fr": "Ville",
+            "de": "Stadt",
+            "es": "Ciudad"
+          },
+          "description": {
+            "en": "Empty: the first city.",
+            "fr": "Vide : la première ville.",
+            "de": "Leer: die erste Stadt.",
+            "es": "Vacío: la primera ciudad."
+          },
+          "required": false
+        },
+        {
+          "key": "day",
+          "type": "select",
+          "label": {
+            "en": "Day",
+            "fr": "Jour",
+            "de": "Tag",
+            "es": "Día"
+          },
+          "options": [
+            {
+              "value": "today",
+              "label": {
+                "en": "Today",
+                "fr": "Aujourd’hui",
+                "de": "Heute",
+                "es": "Hoy"
+              }
+            },
+            {
+              "value": "tomorrow",
+              "label": {
+                "en": "Tomorrow",
+                "fr": "Demain",
+                "de": "Morgen",
+                "es": "Mañana"
+              }
+            }
+          ],
+          "default": "today",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "key": "place_name",
+          "type": "string",
+          "label": {
+            "en": "City",
+            "fr": "Ville",
+            "de": "Stadt",
+            "es": "Ciudad"
+          }
+        },
+        {
+          "key": "date",
+          "type": "string",
+          "label": {
+            "en": "Date",
+            "fr": "Date",
+            "de": "Datum",
+            "es": "Fecha"
+          }
+        },
+        {
+          "key": "level",
+          "type": "number",
+          "label": {
+            "en": "Pollen level",
+            "fr": "Niveau de pollens",
+            "de": "Pollenstufe",
+            "es": "Nivel de polen"
+          },
+          "description": {
+            "en": "1 (low) to 4 (very high), the highest of the three types; empty when unknown.",
+            "fr": "1 (faible) à 4 (très élevé), le plus haut des trois types ; vide si inconnu.",
+            "de": "1 (niedrig) bis 4 (sehr hoch), die höchste der drei Gruppen; leer, wenn unbekannt.",
+            "es": "1 (bajo) a 4 (muy alto), el más alto de los tres tipos; vacío si se desconoce."
+          }
+        },
+        {
+          "key": "label",
+          "type": "string",
+          "label": {
+            "en": "Level name",
+            "fr": "Nom du niveau",
+            "de": "Name der Stufe",
+            "es": "Nombre del nivel"
+          }
+        },
+        {
+          "key": "trees",
+          "type": "number",
+          "label": {
+            "en": "Trees pollen",
+            "fr": "Pollens d’arbres",
+            "de": "Baumpollen",
+            "es": "Polen de árboles"
+          },
+          "description": {
+            "en": "Grains per m³; empty when unknown.",
+            "fr": "Grains par m³ ; vide si inconnu.",
+            "de": "Körner pro m³; leer, wenn unbekannt.",
+            "es": "Granos por m³; vacío si se desconoce."
+          }
+        },
+        {
+          "key": "trees_level",
+          "type": "number",
+          "label": {
+            "en": "Trees level",
+            "fr": "Niveau arbres",
+            "de": "Stufe Bäume",
+            "es": "Nivel árboles"
+          }
+        },
+        {
+          "key": "grass",
+          "type": "number",
+          "label": {
+            "en": "Grass pollen",
+            "fr": "Pollens de graminées",
+            "de": "Gräserpollen",
+            "es": "Polen de gramíneas"
+          },
+          "description": {
+            "en": "Grains per m³; empty when unknown.",
+            "fr": "Grains par m³ ; vide si inconnu.",
+            "de": "Körner pro m³; leer, wenn unbekannt.",
+            "es": "Granos por m³; vacío si se desconoce."
+          }
+        },
+        {
+          "key": "grass_level",
+          "type": "number",
+          "label": {
+            "en": "Grass level",
+            "fr": "Niveau graminées",
+            "de": "Stufe Gräser",
+            "es": "Nivel gramíneas"
+          }
+        },
+        {
+          "key": "weeds",
+          "type": "number",
+          "label": {
+            "en": "Weeds pollen",
+            "fr": "Pollens d’herbacées",
+            "de": "Kräuterpollen",
+            "es": "Polen de herbáceas"
+          },
+          "description": {
+            "en": "Grains per m³; empty when unknown.",
+            "fr": "Grains par m³ ; vide si inconnu.",
+            "de": "Körner pro m³; leer, wenn unbekannt.",
+            "es": "Granos por m³; vacío si se desconoce."
+          }
+        },
+        {
+          "key": "weeds_level",
+          "type": "number",
+          "label": {
+            "en": "Weeds level",
+            "fr": "Niveau herbacées",
+            "de": "Stufe Kräuter",
+            "es": "Nivel herbáceas"
+          }
+        },
+        {
+          "key": "main_pollen",
+          "type": "string",
+          "label": {
+            "en": "Main pollen",
+            "fr": "Pollen principal",
+            "de": "Hauptpollen",
+            "es": "Polen principal"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary",
+            "fr": "Résumé",
+            "de": "Zusammenfassung",
+            "es": "Resumen"
+          },
+          "description": {
+            "en": "A sentence ready for a message.",
+            "fr": "Une phrase prête pour un message.",
+            "de": "Ein Satz für eine Nachricht.",
+            "es": "Una frase lista para un mensaje."
+          }
+        }
+      ]
+    }
+  ]
+}

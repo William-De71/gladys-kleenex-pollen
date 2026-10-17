@@ -1,0 +1,17 @@
+Gladys Kleenex Pollen Radar integration
+Copyright 2026 William Deren
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+The pollen data come from the pollen radar of the Kleenex websites (kleenex.fr,
+kleenex.co.uk, kleenex.nl, kleenex.com) and of Scottex in Italy (scottex.com),
+brands of Kimberly-Clark. The widgets show the source of each reading.
+
+The endpoints of the pollen radar were learned from the Home Assistant
+integration kleenex_pollenradar by MarcoGos
+(https://github.com/MarcoGos/kleenex_pollenradar). No file of it is included:
+the readers of this project were written from recorded answers.
+
+This community integration is not affiliated with, endorsed or sponsored by
+Kleenex, Scottex or Kimberly-Clark. Kleenex and Scottex are trademarks of
+Kimberly-Clark Worldwide, Inc.

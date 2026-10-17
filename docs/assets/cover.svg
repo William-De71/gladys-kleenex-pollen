@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="534" viewBox="0 0 800 534">
+  <!-- Cover of the Kleenex Pollen Radar integration for Gladys Assistant
+       (illustration: no logo of Kleenex, Scottex or Kimberly-Clark). A tree,
+       grass and a weed release pollen grains; the four bars are the levels of
+       the pollen radar. Built into cover.jpg by scripts/build-cover.sh. -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#173b57"/>
+      <stop offset="0.6" stop-color="#2c6e7f"/>
+      <stop offset="1" stop-color="#5fa37a"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffe9a8" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#ffe9a8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="grain" cx="0.4" cy="0.35" r="0.65">
+      <stop offset="0" stop-color="#fff3b0"/>
+      <stop offset="1" stop-color="#e3b23c"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="534" fill="url(#sky)"/>
+  <circle cx="400" cy="200" r="260" fill="url(#sun)"/>
+
+  <!-- pollen grains in the air -->
+  <g fill="url(#grain)">
+    <circle cx="300" cy="120" r="9"/><circle cx="360" cy="80" r="6"/><circle cx="440" cy="110" r="11"/>
+    <circle cx="520" cy="70" r="7"/><circle cx="250" cy="70" r="5"/><circle cx="590" cy="130" r="8"/>
+    <circle cx="470" cy="170" r="5"/><circle cx="330" cy="180" r="6"/><circle cx="650" cy="60" r="5"/>
+    <circle cx="200" cy="140" r="6"/><circle cx="560" cy="200" r="4"/><circle cx="400" cy="40" r="5"/>
+  </g>
+  <g fill="#c8922a" opacity="0.7">
+    <circle cx="437" cy="106" r="2"/><circle cx="445" cy="113" r="2"/><circle cx="297" cy="117" r="1.6"/>
+    <circle cx="303" cy="123" r="1.6"/><circle cx="588" cy="127" r="1.6"/><circle cx="593" cy="133" r="1.6"/>
+  </g>
+
+  <!-- tree, left -->
+  <g transform="translate(140 330)">
+    <rect x="-10" y="0" width="20" height="120" fill="#5b3a29"/>
+    <circle cx="0" cy="-30" r="70" fill="#3f8f4f"/>
+    <circle cx="-45" cy="0" r="45" fill="#4aa35c"/>
+    <circle cx="45" cy="-5" r="48" fill="#368446"/>
+    <circle cx="10" cy="-75" r="40" fill="#56b067"/>
+  </g>
+
+  <!-- weed (ragweed-like spikes), right -->
+  <g transform="translate(670 450)" stroke="#2e6b3a" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M0 0 C 2 -60, -6 -120, 4 -190"/>
+    <path d="M2 -70 C 20 -90, 34 -100, 48 -98"/>
+    <path d="M0 -110 C -20 -128, -34 -136, -46 -132"/>
+    <path d="M3 -150 C 18 -166, 28 -172, 40 -170"/>
+  </g>
+  <g fill="#c9d65a">
+    <ellipse cx="674" cy="268" rx="7" ry="16"/><ellipse cx="718" cy="352" rx="6" ry="12"/>
+    <ellipse cx="624" cy="318" rx="6" ry="12"/><ellipse cx="710" cy="280" rx="5" ry="10"/>
+  </g>
+
+  <!-- grass along the ground -->
+  <g fill="#7cc46b">
+    <path d="M0 470 L20 400 L30 470 Z"/><path d="M40 470 L55 385 L70 470 Z"/>
+    <path d="M240 470 L255 395 L268 470 Z"/><path d="M280 470 L300 380 L312 470 Z"/>
+    <path d="M500 470 L515 390 L528 470 Z"/><path d="M540 470 L560 402 L570 470 Z"/>
+    <path d="M740 470 L755 392 L770 470 Z"/><path d="M770 470 L790 405 L800 470 Z"/>
+  </g>
+  <rect y="460" width="800" height="74" fill="#1f4d36"/>
+
+  <!-- the four levels of the pollen radar -->
+  <g transform="translate(400 300)">
+    <rect x="-130" y="10" width="56" height="30" rx="6" fill="#4caf50"/>
+    <rect x="-62" y="-10" width="56" height="50" rx="6" fill="#f2c94c"/>
+    <rect x="6" y="-35" width="56" height="75" rx="6" fill="#f2994a"/>
+    <rect x="74" y="-65" width="56" height="105" rx="6" fill="#eb5757"/>
+  </g>
+
+  <!-- title -->
+  <text x="400" y="400" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif"
+        font-size="50" font-weight="700" fill="#ffffff">Kleenex Pollen Radar</text>
+  <text x="400" y="508" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif"
+        font-size="24" fill="#d8f0dc">Trees · Grass · Weeds · 5-day forecast</text>
+</svg>
