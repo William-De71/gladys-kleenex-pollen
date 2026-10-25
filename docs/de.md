@@ -12,7 +12,7 @@ Es ist eine **Cloud**-Integration: Sie fragt alle drei Stunden die Kleenex-Websi
 
 ## Voraussetzungen
 
-- Gladys Assistant 5.1.0 oder neuer.
+- Gladys Assistant 5.3.0 oder neuer.
 - Name oder Postleitzahl der Städte, so wie die Website des Pollenradars sie versteht.
 
 ## Konfiguration

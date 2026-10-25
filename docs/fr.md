@@ -12,7 +12,7 @@ C’est une intégration **cloud** : elle interroge le site Kleenex du pays choi
 
 ## Prérequis
 
-- Gladys Assistant 5.1.0 ou plus récent.
+- Gladys Assistant 5.3.0 ou plus récent.
 - Le nom ou le code postal des villes à suivre, tels que le site du radar des pollens les comprend.
 
 ## Configuration

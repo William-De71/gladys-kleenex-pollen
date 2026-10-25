@@ -12,7 +12,7 @@ Es una integración **en la nube**: consulta el sitio de Kleenex del país elegi
 
 ## Requisitos previos
 
-- Gladys Assistant 5.1.0 o posterior.
+- Gladys Assistant 5.3.0 o posterior.
 - El nombre o el código postal de las ciudades que seguir, tal como los entiende el sitio del radar de polen.
 
 ## Configuración
